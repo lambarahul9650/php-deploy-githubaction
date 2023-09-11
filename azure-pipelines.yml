@@ -6,7 +6,8 @@
 trigger:
 - master
 
-pool: myubuntuagent
+pool:
+  vmImage: 'ubuntu-latest'
 
 variables:
   phpVersion: 8.1
@@ -23,3 +24,18 @@ steps:
 
 - script: composer install --ignore-platform-reqs
   displayName: 'composer install'
+
+- script: |
+    # Create the deployment directory if it doesn't exist
+    
+
+    # Copy the Laravel project files to the deployment directory
+    sudo cp -r * /var/www
+
+    # Navigate to the deployment directory
+    cd /var/www
+
+    # Optionally, run any additional deployment tasks, e.g., database migrations
+    # php artisan migrate
+
+  displayName: 'Deploy to /var/www'
