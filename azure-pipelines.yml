@@ -6,8 +6,8 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+pool: myubuntuagent
+
 
 variables:
   phpVersion: 8.1
